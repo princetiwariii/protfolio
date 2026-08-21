@@ -1,0 +1,5 @@
+/* Entry stylesheet — imported once from src/main.js.
+   Order matters: tokens/reset first, then components, then sections. */
+@import './base.css';
+@import './components.css';
+@import './sections.css';

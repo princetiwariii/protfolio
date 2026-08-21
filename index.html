@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#050506" />
+  <meta name="description" content="Prince — Creative Developer & Designer. Building digital experiences with code, motion and design. An interactive 3D portfolio." />
+  <meta name="author" content="Prince" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Prince — Creative Developer & Designer" />
+  <meta property="og:description" content="Building digital experiences with code, motion and design." />
+  <meta property="og:type" content="website" />
+
+  <title>Prince — Creative Developer & Designer</title>
+
+  <!-- Fonts: preconnect for speed, display=swap to avoid invisible text -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+</head>
+<body>
+  <!-- Accessibility: skip straight to content -->
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <!-- Cinematic film grain (decorative) -->
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- Ambient glowing gradients that live behind everything (decorative) -->
+  <div class="ambient" aria-hidden="true">
+    <span class="ambient__blob ambient__blob--a"></span>
+    <span class="ambient__blob ambient__blob--b"></span>
+  </div>
+
+  <!-- Scroll progress bar -->
+  <div class="progress" aria-hidden="true"><span class="progress__bar" data-progress></span></div>
+
+  <!-- Custom cursor (JS enables it only on fine-pointer devices) -->
+  <div class="cursor" aria-hidden="true">
+    <div class="cursor__dot" data-cursor-dot></div>
+    <div class="cursor__ring" data-cursor-ring><span class="cursor__label" data-cursor-label></span></div>
+  </div>
+
+  <!-- ============================ NAV ============================ -->
+  <header class="nav" data-nav>
+    <a href="#home" class="nav__logo" data-cursor data-cursor-scale="1.6" aria-label="Prince — home">
+      <span class="nav__logo-mark">P</span>
+      <span class="nav__logo-text">PRINCE</span>
+    </a>
+
+    <nav class="nav__links" aria-label="Primary">
+      <a href="#home" class="nav__link is-active" data-cursor>Home</a>
+      <a href="#about" class="nav__link" data-cursor>About</a>
+      <a href="#projects" class="nav__link" data-cursor>Projects</a>
+      <a href="#skills" class="nav__link" data-cursor>Skills</a>
+      <a href="#contact" class="nav__link" data-cursor>Contact</a>
+    </nav>
+
+    <a href="#contact" class="nav__cta btn btn--ghost" data-cursor data-magnetic>Let's talk</a>
+
+    <button class="nav__burger" data-burger aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+      <span></span><span></span>
+    </button>
+  </header>
+
+  <!-- Full-screen mobile menu -->
+  <div class="menu" id="mobile-menu" data-menu aria-hidden="true">
+    <nav class="menu__inner" aria-label="Mobile">
+      <a href="#home" class="menu__link" data-menu-link><span>01</span> Home</a>
+      <a href="#about" class="menu__link" data-menu-link><span>02</span> About</a>
+      <a href="#projects" class="menu__link" data-menu-link><span>03</span> Projects</a>
+      <a href="#skills" class="menu__link" data-menu-link><span>04</span> Skills</a>
+      <a href="#contact" class="menu__link" data-menu-link><span>05</span> Contact</a>
+    </nav>
+  </div>
+
+  <main id="main">
+    <!-- ============================ HERO ============================ -->
+    <section id="home" class="hero" aria-labelledby="hero-title">
+      <!-- 3D object lives here; canvas is decorative, content is in text -->
+      <div class="hero__canvas" data-hero-canvas aria-hidden="true"></div>
+
+      <div class="hero__inner">
+        <p class="hero__eyebrow" data-hero-fade>
+          <span class="dot"></span> Available for freelance & collaborations
+        </p>
+
+        <h1 id="hero-title" class="hero__title" data-splt>PRINCE</h1>
+
+        <p class="hero__role" data-hero-fade>Creative Developer &amp; Designer</p>
+
+        <p class="hero__tagline" data-hero-fade>
+          Building digital experiences with code, motion and design.
+        </p>
+
+        <div class="hero__actions" data-hero-fade>
+          <a href="#projects" class="btn btn--primary" data-cursor data-magnetic>
+            View Projects
+          </a>
+          <a href="#contact" class="btn btn--ghost" data-cursor data-magnetic>
+            Contact Me
+          </a>
+        </div>
+      </div>
+
+      <a href="#about" class="hero__scroll" data-hero-fade data-cursor aria-label="Scroll to about">
+        <span>Scroll</span>
+        <span class="hero__scroll-line"><span></span></span>
+      </a>
+    </section>
+
+    <!-- ============================ ABOUT ============================ -->
+    <section id="about" class="section about" aria-labelledby="about-title">
+      <div class="section__head">
+        <span class="section__index" data-reveal>(01)</span>
+        <span class="section__label" data-reveal>About</span>
+      </div>
+
+      <h2 id="about-title" class="about__title" data-splt-lines>
+        I build experiences, not just websites.
+      </h2>
+
+      <div class="about__body">
+        <p class="about__lead" data-reveal>
+          Creative developer focused on building interactive web experiences,
+          modern interfaces and motion-driven digital products.
+        </p>
+        <p class="about__text" data-reveal>
+          I care about the small things — the timing of a transition, the weight
+          of a typeface, the way an interface responds to touch. Design and code
+          are the same craft to me: two sides of one experience.
+        </p>
+      </div>
+
+      <div class="stats" data-stats>
+        <article class="stat" data-tilt data-reveal data-cursor data-cursor-scale="2.4">
+          <span class="stat__num" data-count="24" data-suffix="+">0</span>
+          <span class="stat__label">Projects Built</span>
+        </article>
+        <article class="stat" data-tilt data-reveal data-cursor data-cursor-scale="2.4">
+          <span class="stat__num" data-count="12" data-suffix="+">0</span>
+          <span class="stat__label">Technologies</span>
+        </article>
+        <article class="stat" data-tilt data-reveal data-cursor data-cursor-scale="2.4">
+          <span class="stat__num" data-count="3" data-suffix="+">0</span>
+          <span class="stat__label">Years Learning</span>
+        </article>
+        <article class="stat" data-tilt data-reveal data-cursor data-cursor-scale="2.4">
+          <span class="stat__num" data-count="40" data-suffix="+">0</span>
+          <span class="stat__label">Creative Experiments</span>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============================ PROJECTS ============================ -->
+    <section id="projects" class="section projects" aria-labelledby="projects-title">
+      <div class="section__head">
+        <span class="section__index" data-reveal>(02)</span>
+        <span class="section__label" data-reveal>Selected Work</span>
+      </div>
+
+      <h2 id="projects-title" class="section__title" data-splt-lines>Selected Work</h2>
+
+      <div class="cards">
+        <!-- Card 1 -->
+        <article class="card" data-tilt data-reveal data-cursor data-cursor-label="View" data-cursor-scale="2.6">
+          <div class="card__visual card__visual--1" aria-hidden="true"><span class="card__orb"></span></div>
+          <div class="card__body">
+            <span class="card__num">01</span>
+            <h3 class="card__title">Smart Calculator</h3>
+            <p class="card__tech">HTML / CSS / JavaScript</p>
+            <p class="card__desc">A polished calculator with expression parsing, live history and persistent local storage.</p>
+            <a class="card__link" href="/projects/smart-calculator/index.html" target="_blank" rel="noopener" data-cursor data-magnetic>
+              View Project <span aria-hidden="true">→</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="card" data-tilt data-reveal data-cursor data-cursor-label="View" data-cursor-scale="2.6">
+          <div class="card__visual card__visual--2" aria-hidden="true"><span class="card__orb"></span></div>
+          <div class="card__body">
+            <span class="card__num">02</span>
+            <h3 class="card__title">Interactive Portfolio</h3>
+            <p class="card__tech">JavaScript / Motion / Three.js</p>
+            <p class="card__desc">This very site — a cinematic 3D portfolio built with a hand-rolled motion system.</p>
+            <a class="card__link" href="#home" data-cursor data-magnetic>
+              View Project <span aria-hidden="true">→</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="card" data-tilt data-reveal data-cursor data-cursor-label="View" data-cursor-scale="2.6">
+          <div class="card__visual card__visual--3" aria-hidden="true"><span class="card__orb"></span></div>
+          <div class="card__body">
+            <span class="card__num">03</span>
+            <h3 class="card__title">AI Image Tool</h3>
+            <p class="card__tech">Python / API / JavaScript</p>
+            <p class="card__desc">A generative image utility wiring a clean JS front-end to a Python API backend.</p>
+            <a class="card__link" href="#contact" data-cursor data-magnetic>
+              View Project <span aria-hidden="true">→</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- Card 4 -->
+        <article class="card" data-tilt data-reveal data-cursor data-cursor-label="View" data-cursor-scale="2.6">
+          <div class="card__visual card__visual--4" aria-hidden="true"><span class="card__orb"></span></div>
+          <div class="card__body">
+            <span class="card__num">04</span>
+            <h3 class="card__title">Creative Motion Experience</h3>
+            <p class="card__tech">Three.js / Motion / WebGL</p>
+            <p class="card__desc">A WebGL playground exploring particles, shaders and cursor-driven interaction.</p>
+            <a class="card__link" href="#lab" data-cursor data-magnetic>
+              View Project <span aria-hidden="true">→</span>
+            </a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============================ FEATURED ============================ -->
+    <section class="section featured" aria-labelledby="featured-title" data-featured>
+      <div class="featured__inner" data-reveal>
+        <div class="featured__meta">
+          <span class="section__label">Featured</span>
+          <span class="featured__tag">2026 · WebGL</span>
+        </div>
+
+        <h2 id="featured-title" class="featured__title">
+          <span data-featured-line>Creative Motion</span>
+          <span data-featured-line class="featured__title--accent">Experience</span>
+        </h2>
+
+        <p class="featured__desc">
+          An immersive, real-time WebGL scene blending particles, physically based
+          materials and motion design into a single interactive canvas.
+        </p>
+
+        <a href="#lab" class="featured__cta" data-cursor data-magnetic>
+          EXPLORE PROJECT <span aria-hidden="true">→</span>
+        </a>
+      </div>
+
+      <div class="featured__visual" data-featured-visual aria-hidden="true">
+        <div class="featured__grid"></div>
+        <div class="featured__glow"></div>
+        <span class="featured__ring featured__ring--1"></span>
+        <span class="featured__ring featured__ring--2"></span>
+        <span class="featured__ring featured__ring--3"></span>
+      </div>
+    </section>
+
+    <!-- ============================ SKILLS ============================ -->
+    <section id="skills" class="section skills" aria-labelledby="skills-title">
+      <div class="section__head">
+        <span class="section__index" data-reveal>(03)</span>
+        <span class="section__label" data-reveal>Toolkit</span>
+      </div>
+
+      <h2 id="skills-title" class="section__title" data-splt-lines>Skills &amp; Tools</h2>
+
+      <ul class="pills" data-skills>
+        <li><button class="pill" data-cursor data-skill="Semantic, accessible structure">HTML</button></li>
+        <li><button class="pill" data-cursor data-skill="Layouts, animation & modern CSS">CSS</button></li>
+        <li><button class="pill" data-cursor data-skill="The language I think in">JavaScript</button></li>
+        <li><button class="pill" data-cursor data-skill="Scripting, APIs & automation">Python</button></li>
+        <li><button class="pill" data-cursor data-skill="Fundamentals & memory">C</button></li>
+        <li><button class="pill" data-cursor data-skill="Component-driven interfaces">React</button></li>
+        <li><button class="pill" data-cursor data-skill="Servers, tooling & APIs">Node.js</button></li>
+        <li><button class="pill" data-cursor data-skill="Real-time 3D on the web">Three.js</button></li>
+        <li><button class="pill" data-cursor data-skill="Fluid, performant animation">Motion</button></li>
+        <li><button class="pill" data-cursor data-skill="Version control & collaboration">Git / GitHub</button></li>
+      </ul>
+
+      <p class="skills__hint" data-reveal aria-hidden="true">Hover a skill</p>
+    </section>
+
+    <!-- ============================ CREATIVE LAB ============================ -->
+    <section id="lab" class="section lab" aria-labelledby="lab-title">
+      <div class="section__head">
+        <span class="section__index" data-reveal>(04)</span>
+        <span class="section__label" data-reveal>Playground</span>
+      </div>
+
+      <h2 id="lab-title" class="section__title" data-splt-lines>Creative Lab</h2>
+      <p class="lab__intro" data-reveal>
+        A little interactive experiment. Move your cursor through the field —
+        the objects notice you.
+      </p>
+
+      <div class="lab__stage" data-lab-canvas role="img" aria-label="Interactive 3D field of floating objects that react to the cursor">
+        <span class="lab__hint" data-lab-hint>Move your cursor · click to pulse</span>
+      </div>
+    </section>
+
+    <!-- ============================ CONTACT ============================ -->
+    <section id="contact" class="section contact" aria-labelledby="contact-title">
+      <div class="section__head">
+        <span class="section__index" data-reveal>(05)</span>
+        <span class="section__label" data-reveal>Contact</span>
+      </div>
+
+      <h2 id="contact-title" class="contact__title" data-splt-lines>
+        Let's build something memorable.
+      </h2>
+
+      <a href="mailto:hello@prince.dev" class="contact__talk" data-cursor data-magnetic="0.4">
+        LET'S TALK <span aria-hidden="true">→</span>
+      </a>
+
+      <ul class="contact__links" data-reveal>
+        <li><a href="mailto:hello@prince.dev" data-cursor data-magnetic>Email</a></li>
+        <li><a href="https://github.com/" target="_blank" rel="noopener" data-cursor data-magnetic>GitHub</a></li>
+        <li><a href="https://www.linkedin.com/" target="_blank" rel="noopener" data-cursor data-magnetic>LinkedIn</a></li>
+        <li><a href="https://www.instagram.com/" target="_blank" rel="noopener" data-cursor data-magnetic>Instagram</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <!-- ============================ FOOTER ============================ -->
+  <footer class="footer">
+    <div class="footer__line" aria-hidden="true"></div>
+    <div class="footer__row">
+      <span>© 2026 Prince</span>
+      <span class="footer__credit">Designed &amp; Developed by Prince</span>
+      <a href="#home" class="footer__top" data-cursor data-magnetic aria-label="Back to top">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

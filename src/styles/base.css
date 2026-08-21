@@ -1,0 +1,253 @@
+/* ============================================================
+   BASE — design tokens, reset, typography, ambient atmosphere
+   ============================================================ */
+
+:root {
+  /* Surfaces */
+  --bg: #050506;
+  --bg-2: #0a0a0f;
+  --surface: rgba(255, 255, 255, 0.03);
+  --surface-2: rgba(255, 255, 255, 0.05);
+  --line: rgba(255, 255, 255, 0.09);
+  --line-strong: rgba(255, 255, 255, 0.16);
+
+  /* Type colour */
+  --text: #f4f4f6;
+  --text-dim: rgba(244, 244, 246, 0.58);
+  --text-faint: rgba(244, 244, 246, 0.32);
+
+  /* Accent */
+  --blue: #5b8cff;
+  --purple: #a855f7;
+  --accent: linear-gradient(120deg, var(--blue), var(--purple));
+  --glow-blue: rgba(91, 140, 255, 0.5);
+  --glow-purple: rgba(168, 85, 247, 0.45);
+
+  /* Fonts */
+  --font-display: 'Space Grotesk', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-mono: 'Space Mono', ui-monospace, monospace;
+
+  /* Rhythm */
+  --container: 1240px;
+  --gutter: clamp(1.25rem, 5vw, 5rem);
+  --section-pad: clamp(5rem, 12vw, 11rem);
+  --radius: 18px;
+  --radius-lg: 26px;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+/* ----- Reset ----- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 0.95rem + 0.3vw, 1.125rem);
+  line-height: 1.65;
+  letter-spacing: 0.01em;
+  overflow-x: hidden;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Hide the native cursor once JS confirms a fine pointer */
+body.has-custom-cursor,
+body.has-custom-cursor * {
+  cursor: none;
+}
+
+img,
+svg,
+canvas {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+ul {
+  list-style: none;
+}
+
+::selection {
+  background: var(--purple);
+  color: #fff;
+}
+
+/* ----- Typography scale ----- */
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+}
+
+.section__title,
+.about__title,
+.contact__title {
+  font-size: clamp(2.4rem, 6vw, 5.5rem);
+  font-weight: 600;
+}
+
+/* ----- Layout helpers ----- */
+.section {
+  position: relative;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding: var(--section-pad) var(--gutter);
+}
+
+.section__head {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+
+.section__index {
+  color: var(--blue);
+}
+
+.section__label::before {
+  content: '';
+  display: inline-block;
+  width: 34px;
+  height: 1px;
+  margin-right: 0.9rem;
+  vertical-align: middle;
+  background: var(--line-strong);
+}
+
+/* ----- Accessibility ----- */
+.skip-link {
+  position: fixed;
+  top: -100px;
+  left: 1rem;
+  z-index: 1000;
+  padding: 0.75rem 1.25rem;
+  background: var(--text);
+  color: #000;
+  border-radius: 10px;
+  transition: top 0.25s var(--ease-out);
+}
+.skip-link:focus {
+  top: 1rem;
+}
+
+:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+/* ----- Film grain overlay ----- */
+.grain {
+  position: fixed;
+  inset: -50%;
+  z-index: 900;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation: grain 6s steps(6) infinite;
+}
+@keyframes grain {
+  0%   { transform: translate(0, 0); }
+  20%  { transform: translate(-4%, 3%); }
+  40%  { transform: translate(3%, -4%); }
+  60%  { transform: translate(-3%, 2%); }
+  80%  { transform: translate(4%, -2%); }
+  100% { transform: translate(0, 0); }
+}
+
+/* ----- Ambient glowing gradients ----- */
+.ambient {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+.ambient__blob {
+  position: absolute;
+  width: 60vmax;
+  height: 60vmax;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.22;
+  will-change: transform;
+}
+.ambient__blob--a {
+  top: -20vmax;
+  right: -10vmax;
+  background: radial-gradient(circle, var(--blue), transparent 65%);
+  animation: drift-a 26s var(--ease-in-out) infinite alternate;
+}
+.ambient__blob--b {
+  bottom: -25vmax;
+  left: -15vmax;
+  background: radial-gradient(circle, var(--purple), transparent 65%);
+  animation: drift-b 32s var(--ease-in-out) infinite alternate;
+}
+@keyframes drift-a {
+  to { transform: translate(-8vw, 10vh) scale(1.15); }
+}
+@keyframes drift-b {
+  to { transform: translate(10vw, -8vh) scale(1.1); }
+}
+
+/* ============================================================
+   Reduced motion — respect the user's OS preference.
+   Content is visible by default (JS only hides reveal targets
+   when motion is allowed), so disabling animation is safe.
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+  .grain,
+  .ambient__blob {
+    animation: none !important;
+  }
+}
