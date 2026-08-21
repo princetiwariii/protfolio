@@ -1,11 +1,11 @@
 {
   "name": "prince-portfolio",
   "version": "1.0.0",
-  "description": "Premium 3D motion portfolio — Prince, Creative Developer & Designer",
+  "description": "Premium 3D motion portfolio — Prince, Creative Developer",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "node node_modules/vite/bin/vite.js build"
+    "build": "node node_modules/vite/bin/vite.js build",
     "preview": "vite preview"
   },
   "author": "Prince",
